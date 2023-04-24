@@ -1,0 +1,14 @@
+pandas
+pytz==2021.1
+asgiref==3.3.4
+django==3.0.5
+djangorestframework==3.12.4
+tweepy
+facebook-sdk
+scrapfly-sdk
+instaloader
+python-linkedin
+pymongo == 3.12.1
+djongo==1.3.6
+maigret
+sqlparse==0.2.4
