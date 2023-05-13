@@ -29,5 +29,5 @@ def search_username_and_store(username, sites=None, user_agent=None, tags=None, 
 
     result = OsintResult(username=username, data=osint_data)
     result.save()
-
     return result
+
