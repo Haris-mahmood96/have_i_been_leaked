@@ -68,6 +68,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# subprocess.run(["powershell", "python", "C:/Users/adds0/Git/sherlock/sherlock --verbose --output a.txt aaaa"],
-#                shell=True)
