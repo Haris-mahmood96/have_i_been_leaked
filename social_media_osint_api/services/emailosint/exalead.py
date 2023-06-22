@@ -2,14 +2,13 @@ from social_media_osint_api.services.emailosint.email_request import EmailReques
 
 
 class Exalead(EmailRequest):
-    def __init__(self, target):
+    def __init__(self):
         EmailRequest.__init__(self)
-        self.target = target
 
     def search(self, email=""):
-        print('Searching "%s" in Exalead...'.format(self.target))
+        print('Searching "%s" in Exalead...'.format(email))
         url = "http://www.exalead.com/search/web/results/?q=%40{target}&elements_per_page=50&start_index=0".format(
-            target=self.target)
+            target=email)
         try:
             resp = self.send_request(
                 method='GET',
@@ -17,9 +16,9 @@ class Exalead(EmailRequest):
                 headers={
                     'Host': 'www.exalead.com',
                     'Referer': 'http://exalead.com/search/web/results/?q=%40{target}'.format(
-                        target=self.target)
+                        target=email)
                 }
             )
-            return self.get_email(resp.content, self.target)
+            return self.get_email(resp.content, email)
         except Exception as e:
             pass

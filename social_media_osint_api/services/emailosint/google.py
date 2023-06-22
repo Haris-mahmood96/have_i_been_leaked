@@ -2,14 +2,13 @@ from social_media_osint_api.services.emailosint.email_request import EmailReques
 
 
 class Google(EmailRequest):
-    def __init__(self, target):
+    def __init__(self):
         EmailRequest.__init__(self)
-        self.target = target
 
     def search(self, email=""):
-        print('Searching "%s" in Google...' % self.target)
+        print('Searching "%s" in Google...' % email)
         base_url = 'https://www.google.com/search?q=intext:%22%40{target}%22&num=50'.format(
-            target=self.target)
+            target=email)
         mails = []
         page = 0
         while page < 7:
@@ -18,7 +17,7 @@ class Google(EmailRequest):
                 resp = self.send_request(url)
                 if "detected unusual traffic" in resp.text:
                     break
-                emails = self.get_email(resp.content, self.target)
+                emails = self.get_email(resp.content, email)
                 mails.extend(email for email in emails if email not in mails)
                 page += 1
             except Exception as e:

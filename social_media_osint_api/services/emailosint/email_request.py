@@ -5,9 +5,8 @@ from social_media_osint_api.services.request import Request
 
 
 class EmailRequest(Request):
-    def __init__(self, target):
+    def __init__(self):
         Request.__init__(self)
-        self.target = target
 
     @abc.abstractmethod
     def search(self, email=""):

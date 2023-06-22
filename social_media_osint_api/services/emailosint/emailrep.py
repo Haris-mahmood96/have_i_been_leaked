@@ -3,13 +3,12 @@ from social_media_osint_api.services.emailosint.email_request import EmailReques
 
 
 class EmailRep(EmailRequest):
-    def __init__(self, target):
+    def __init__(self):
         EmailRequest.__init__(self)
-        self.target = target
 
     def search(self, email=""):
-        print('Searching "%s" in Emailrep...'.format(self.target))
-        url = 'https://emailrep.io/{}'.format(self.target)
+        print('Searching "%s" in Emailrep...'.format(email))
+        url = 'https://emailrep.io/{}'.format(email)
         try:
             resp = self.send_request(
                 method='GET',

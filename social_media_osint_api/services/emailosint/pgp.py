@@ -2,14 +2,13 @@ from social_media_osint_api.services.emailosint.email_request import EmailReques
 
 
 class PGP(EmailRequest):
-    def __init__(self, target):
+    def __init__(self):
         EmailRequest.__init__(self)
-        self.target = target
 
     def search(self, email=""):
-        print('Searching "%s" in PGP...'.format(self.target))
+        print('Searching "%s" in PGP...'.format(email))
         url = "http://pgp.mit.edu/pks/lookup?search={target}&op=index".format(
-            target=self.target)
+            target=email)
         try:
             resp = self.send(
                 method='GET',
@@ -18,6 +17,6 @@ class PGP(EmailRequest):
                     'Host': 'pgp.mit.edu'
                 }
             )
-            return self.get_email(resp.content, self.target)
+            return self.get_email(resp.content, email)
         except Exception as e:
             pass

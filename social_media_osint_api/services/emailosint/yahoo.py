@@ -2,14 +2,13 @@ from social_media_osint_api.services.emailosint.email_request import EmailReques
 
 
 class Yahoo(EmailRequest):
-    def __init__(self, target):
+    def __init__(self):
         EmailRequest.__init__(self)
-        self.target = target
 
     def search(self, email=""):
-        print('Searching "%s" in Yahoo...'.format(self.target))
+        print('Searching "%s" in Yahoo...'.format(email))
         url = "http://search.yahoo.com/search?p=%40{target}&b=0&pz=10".format(
-            target=self.target)
+            target=email)
         try:
             resp = self.send_request(
                 method='GET',
@@ -18,6 +17,6 @@ class Yahoo(EmailRequest):
                     'Host': 'search.yahoo.com'
                 }
             )
-            return self.get_email(resp.content, self.target)
+            return self.get_email(resp.content, email)
         except Exception as e:
             pass

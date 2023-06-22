@@ -26,12 +26,11 @@ from social_media_osint_api.services.emailosint.email_request import EmailReques
 # Only a handful of modules with holehe have been used, see https://github.com/megadose/holehe
 class Holehe(EmailRequest):
 
-    def __init__(self, target):
+    def __init__(self):
         EmailRequest.__init__(self)
-        self.target = target
 
     def search(self, email=""):
-        print('Searching "%s" in Holehe...'.format(self.target))
+        print('Searching "%s" in Holehe...'.format(email))
         try:
             list_acc = []
 
@@ -39,14 +38,14 @@ class Holehe(EmailRequest):
             async def acc_amazon():
                 out = []
                 client = httpx.AsyncClient()
-                await amazon(self.target, client, out)
+                await amazon(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_ebay():
                 out = []
                 client = httpx.AsyncClient()
-                await ebay(self.target, client, out)
+                await ebay(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -54,42 +53,42 @@ class Holehe(EmailRequest):
             async def acc_snapchat():
                 out = []
                 client = httpx.AsyncClient()
-                await snapchat(self.target, client, out)
+                await snapchat(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_pinterest():
                 out = []
                 client = httpx.AsyncClient()
-                await pinterest(self.target, client, out)
+                await pinterest(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_tumblr():
                 out = []
                 client = httpx.AsyncClient()
-                await tumblr(self.target, client, out)
+                await tumblr(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_discord():
                 out = []
                 client = httpx.AsyncClient()
-                await discord(self.target, client, out)
+                await discord(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_instagram():
                 out = []
                 client = httpx.AsyncClient()
-                await instagram(self.target, client, out)
+                await instagram(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_twitter():
                 out = []
                 client = httpx.AsyncClient()
-                await twitter(self.target, client, out)
+                await twitter(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -97,7 +96,7 @@ class Holehe(EmailRequest):
             async def acc_buymeacoffee():
                 out = []
                 client = httpx.AsyncClient()
-                await buymeacoffee(self.target, client, out)
+                await buymeacoffee(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -105,14 +104,14 @@ class Holehe(EmailRequest):
             async def acc_blablacar():
                 out = []
                 client = httpx.AsyncClient()
-                await blablacar(self.target, client, out)
+                await blablacar(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_cracked_to():
                 out = []
                 client = httpx.AsyncClient()
-                await cracked_to(self.target, client, out)
+                await cracked_to(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -120,7 +119,7 @@ class Holehe(EmailRequest):
             async def acc_github():
                 out = []
                 client = httpx.AsyncClient()
-                await github(self.target, client, out)
+                await github(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -128,7 +127,7 @@ class Holehe(EmailRequest):
             async def acc_spotify():
                 out = []
                 client = httpx.AsyncClient()
-                await spotify(self.target, client, out)
+                await spotify(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -136,21 +135,21 @@ class Holehe(EmailRequest):
             async def acc_google():
                 out = []
                 client = httpx.AsyncClient()
-                await google(self.target, client, out)
+                await google(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_yahoo():
                 out = []
                 client = httpx.AsyncClient()
-                await yahoo(self.target, client, out)
+                await yahoo(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_protonmail():
                 out = []
                 client = httpx.AsyncClient()
-                await protonmail(self.target, client, out)
+                await protonmail(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
@@ -158,21 +157,21 @@ class Holehe(EmailRequest):
             async def acc_redtube():
                 out = []
                 client = httpx.AsyncClient()
-                await redtube(self.target, client, out)
+                await redtube(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_pornhub():
                 out = []
                 client = httpx.AsyncClient()
-                await pornhub(self.target, client, out)
+                await pornhub(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
             async def acc_xvideos():
                 out = []
                 client = httpx.AsyncClient()
-                await xvideos(self.target, client, out)
+                await xvideos(email, client, out)
                 list_acc.append(out)
                 await client.aclose()
 
