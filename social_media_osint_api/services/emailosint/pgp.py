@@ -6,7 +6,7 @@ class PGP(EmailRequest):
         EmailRequest.__init__(self)
 
     def search(self, email=""):
-        print('Searching "%s" in PGP...'.format(email))
+        print('Searching "{}" in PGP...'.format(email))
         url = "http://pgp.mit.edu/pks/lookup?search={target}&op=index".format(
             target=email)
         try:

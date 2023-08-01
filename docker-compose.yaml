@@ -21,6 +21,3 @@ services:
 #      - "8000:8000"
 #    depends_on:
 #      - mongodb
-local
-are u saying host it on the cloud
-it saves data to the databse

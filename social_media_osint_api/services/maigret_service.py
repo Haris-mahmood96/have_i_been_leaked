@@ -2,7 +2,7 @@ import json
 import subprocess
 from pathlib import Path
 
-from social_media_osint_api.models import OsintResult
+from social_media_osint_api.models import UsernameOsintResult
 
 
 def search_username_and_store(username, sites=None, user_agent=None, tags=None, json_file=None):
@@ -27,7 +27,7 @@ def search_username_and_store(username, sites=None, user_agent=None, tags=None, 
         f = open(file)
         osint_data = json.load(f)
 
-    result = OsintResult(username=username, data=osint_data)
+    result = UsernameOsintResult(username=username, data=osint_data)
     result.save()
     return result
 

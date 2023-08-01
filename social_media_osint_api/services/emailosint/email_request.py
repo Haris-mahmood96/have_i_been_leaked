@@ -1,7 +1,7 @@
 import abc
 
 from social_media_osint_api.services.emailosint.email_parser import EmailParser
-from social_media_osint_api.services.request import Request
+from social_media_osint_api.services.emailosint.request import Request
 
 
 class EmailRequest(Request):

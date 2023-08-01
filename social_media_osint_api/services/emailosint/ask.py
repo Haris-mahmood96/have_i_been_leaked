@@ -1,5 +1,4 @@
 from social_media_osint_api.services.emailosint.email_request import EmailRequest
-from social_media_osint_api.services.request import Request
 
 
 class Ask(EmailRequest):
@@ -8,7 +7,7 @@ class Ask(EmailRequest):
 
 
     def search(self, email=""):
-        print('Searching %s in Ask...'.format(email))
+        print('Searching {} in Ask...'.format(email))
         url = "http://www.ask.com/web?q=%40{target}&pu=100&page=0".format(
             target=email)
         try:

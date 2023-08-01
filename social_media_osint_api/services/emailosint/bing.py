@@ -6,7 +6,7 @@ class Bing(EmailRequest):
         EmailRequest.__init__(self)
 
     def search(self, email=""):
-        print('Searching "%s" in Bing...' % (email))
+        print('Searching "{}" in Bing...'.format(email))
         url = "http://bing.com/search?q=%40{target}".format(
             target=email)
         try:
@@ -19,4 +19,5 @@ class Bing(EmailRequest):
             )
             return self.get_email(resp.content, email)
         except Exception as e:
+            print(e)
             pass

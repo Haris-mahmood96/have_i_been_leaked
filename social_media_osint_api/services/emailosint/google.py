@@ -6,7 +6,7 @@ class Google(EmailRequest):
         EmailRequest.__init__(self)
 
     def search(self, email=""):
-        print('Searching "%s" in Google...' % email)
+        print('Searching "{}" in Google...'.format(email))
         base_url = 'https://www.google.com/search?q=intext:%22%40{target}%22&num=50'.format(
             target=email)
         mails = []
@@ -14,7 +14,8 @@ class Google(EmailRequest):
         while page < 7:
             url = base_url + "&start=" + str(page)
             try:
-                resp = self.send_request(url)
+                resp = self.send_request(method='GET',
+                                         url=url)
                 if "detected unusual traffic" in resp.text:
                     break
                 emails = self.get_email(resp.content, email)

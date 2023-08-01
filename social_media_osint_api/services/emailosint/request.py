@@ -5,7 +5,7 @@ import urllib3
 class Request(object):
     agent = ''
 
-    def __send_request(self, method: str, url: str, params=None, data=None, headers=None):
+    def send_request(self, method: str, url: str, params=None, data=None, headers=None):
         if headers is None: headers = {}
         headers['User-Agent'] = Request.agent
         try:

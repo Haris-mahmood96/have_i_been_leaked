@@ -10,14 +10,14 @@ class LeakLookUp(EmailRequest):
         EmailRequest.__init__(self)
 
     def search(self, email=""):
-        print('Searching "%s" in leak-lookup...'.format(email))
+        print('Searching "{}" in leak-lookup...'.format(email))
         url = 'https://leak-lookup.com/api/search'
-        params = {'key ': self.API_KEY, 'type': 'email_address', 'query': email}
+        params = {'key': self.API_KEY, 'type': 'email_address', 'query': email}
         try:
             resp = self.send_request(
                 method='POST',
                 url=url,
-                params=params
+                data=params
             )
             data = resp.text
             parsed = json.loads(data)

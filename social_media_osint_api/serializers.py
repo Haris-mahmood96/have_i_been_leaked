@@ -1,14 +1,15 @@
 from rest_framework import serializers
-from .models import OsintResult
+
+from .models import UsernameOsintResult, EmailOsintResult
 
 
 class OsintResultSerializer(serializers.ModelSerializer):
     class Meta:
-        model = OsintResult
+        model = UsernameOsintResult
         fields = '__all__'
 
 
-class UserSerializer(serializers.Serializer):
-    username = serializers.CharField(max_length=100)
-    email = serializers.EmailField()
-    phone_number = serializers.CharField(max_length=20)
+class EmailOsintSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EmailOsintResult
+        fields = ['email', 'results','created_at', 'updated_at']

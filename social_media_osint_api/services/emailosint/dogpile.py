@@ -6,7 +6,7 @@ class Dogpile(EmailRequest):
         EmailRequest.__init__(self)
 
     def search(self, email=""):
-        print('Searching "%s" in DogPile...'.format(email))
+        print('Searching "{}" in DogPile...'.format(email))
         url = "http://www.dogpile.com/search/web?qsi=0&q=%40{target}".format(
             target=email)
         try:
@@ -19,4 +19,5 @@ class Dogpile(EmailRequest):
             )
             return self.get_email(resp.content, email)
         except Exception as e:
+            print(e)
             pass

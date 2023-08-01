@@ -6,7 +6,7 @@ class Yahoo(EmailRequest):
         EmailRequest.__init__(self)
 
     def search(self, email=""):
-        print('Searching "%s" in Yahoo...'.format(email))
+        print('Searching "{}" in Yahoo...'.format(email))
         url = "http://search.yahoo.com/search?p=%40{target}&b=0&pz=10".format(
             target=email)
         try:
