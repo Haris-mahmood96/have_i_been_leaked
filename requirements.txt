@@ -2,7 +2,7 @@ pandas
 pytz==2021.1
 asgiref==3.3.4
 django==3.0.5
-djangorestframework==3.12.4
+djangorestframework==3.14.0
 tweepy
 facebook-sdk
 scrapfly-sdk
@@ -16,3 +16,4 @@ holehe
 requests==2.31.0
 urllib3==2.0.3
 emailrep
+django-cors-headers

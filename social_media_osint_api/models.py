@@ -12,7 +12,9 @@ class UsernameOsintResult(models.Model):
 
 class EmailOsintResult(models.Model):
     email = models.EmailField(unique=True)
-    results = djongo_models.JSONField(default=dict, blank=True)
+    basic_email_reputation = djongo_models.JSONField(default=dict, blank=True)
+    leaks = djongo_models.JSONField(default=dict, blank=True)
+    social_media_registrations = djongo_models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

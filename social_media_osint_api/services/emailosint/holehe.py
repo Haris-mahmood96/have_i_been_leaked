@@ -12,6 +12,8 @@ class Holehe():
                      'onlyused': only_used, 'csvoutput': csv}
 
         args = argparse.Namespace(**args_dict)
+
+        ## code from here onwards
         check_update()
         credit()
 

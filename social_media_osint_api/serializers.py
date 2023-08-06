@@ -12,4 +12,4 @@ class OsintResultSerializer(serializers.ModelSerializer):
 class EmailOsintSerializer(serializers.ModelSerializer):
     class Meta:
         model = EmailOsintResult
-        fields = ['email', 'results','created_at', 'updated_at']
+        fields = ['email', 'basic_email_reputation', 'leaks', 'social_media_registrations', 'created_at', 'updated_at']
