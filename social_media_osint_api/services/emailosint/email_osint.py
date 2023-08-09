@@ -1,6 +1,5 @@
 from holehe.core import *
 
-from social_media_osint_api.services.emailosint import test
 from social_media_osint_api.services.emailosint.ask import Ask
 from social_media_osint_api.services.emailosint.baidu import Baidu
 from social_media_osint_api.services.emailosint.bing import Bing

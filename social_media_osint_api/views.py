@@ -79,3 +79,7 @@ def email_osint_analysis(request):
     serializer = EmailOsintSerializer(email_osint)
 
     return Response(serializer.data)
+
+
+
+
