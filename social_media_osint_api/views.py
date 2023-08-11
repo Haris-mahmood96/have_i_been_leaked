@@ -42,8 +42,8 @@ def search_username(request, username):
 def email_osint_analysis(request):
     email = request.data.get("email")
 
-    # Get the refresh_rate header, or use '60' as a default
-    refresh_rate: float = float(request.headers.get('refresh_rate', '3'))
+    # Get the refresh_rate header, or use '30' as a default
+    refresh_rate: float = float(request.headers.get('refresh_rate', '30'))
 
     if not email:
         return Response({"detail": "Email is missing."}, status=status.HTTP_400_BAD_REQUEST)
@@ -64,7 +64,12 @@ def email_osint_analysis(request):
             #  merging two dictionaries via the unpacking operator **,  If the same key exists in both ,
             #  the value from search results is used.
 
-            email_osint.leaks = {**email_osint.results, **search_results.get("leaks")}
+            email_osint.leaks = {**email_osint.leaks, **search_results.get("leaks")}
+
+            email_osint.social_media_registrations = search_results.get("social_media_registrations")
+
+            email_osint.basic_email_reputation = {**email_osint.basic_email_reputation, **search_results.get("basic_email_reputation")}
+
             email_osint.save()
     except EmailOsintResult.DoesNotExist:
         # If user does not exist, create a new one
